@@ -1,0 +1,31 @@
+- name: Set {{ config }}
+  become: true
+  block:
+  - name: Check for duplicate values {{ config }}
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      create: true
+      regexp: (?i)^\s*{{ config }}\s+
+      state: absent
+      mode: "0600"
+    check_mode: true
+    changed_when: false
+    register: dupes
+  - name: Deduplicate values from /etc/ssh/sshd_config {{ config }}
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      create: true
+      regexp: (?i)^\s*{{ config }}\s+
+      state: absent
+      mode: "0600"
+    when: dupes.found is defined and dupes.found > 1
+  - name: Insert correct line to /etc/ssh/sshd_config {{ config }}
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      create: true
+      regexp: (?i)^\s*{{ config }}\s+
+      line: "{{ config }} {{ value }}"
+      state: present
+      insertbefore: BOF
+      validate: /usr/sbin/sshd -t -f %s
+      mode: "0600"

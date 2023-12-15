@@ -1,0 +1,12 @@
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_pkg_mgr == "apt"
+  become: true
+- name: Install packages
+  ansible.builtin.package:
+    name:
+      - unzip
+      - kbtin
+    state: present
+  become: true

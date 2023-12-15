@@ -1,0 +1,10 @@
+---
+roles:
+  - name: stephrobert.bootstrap
+    version: 1.0.4
+  - name: stephrobert.openscap
+    version: 1.0.6
+  - name: stephrobert.lynis
+    version: 1.0.4
+  - name: stephrobert.motd
+    version: 1.0.1

@@ -1,0 +1,33 @@
+---
+- name: Set Value
+  ansible.builtin.include_tasks: modify.yml
+  loop:
+    - { config: ClientAliveCountMax, value: "{{ sshd_clientalivecountmax }}" }
+    - { config: ClientAliveInterval, value: "{{ sshd_clientaliveinterval }}" }
+    - { config: HostbasedAuthentication, value: "{{ sshd_hostbasedauthentication }}" }
+    - { config: TCPKeepAlive, value: "{{ sshd_keepalive }}" }
+    - { config: X11Forwarding, value: "{{ sshd_x11forwarding }}" }
+    - { config: LogLevel, value: "{{ sshd_loglevel }}" }
+    - { config: MaxAuthTries, value: "{{ sshd_maxauthtries }}" }
+    - { config: AllowTcpForwarding, value: "{{ sshd_allowtcpforwarding }}" }
+    - { config: MaxSessions, value: "{{ sshd_maxsessions }}" }
+    - { config: MaxStartups, value: "{{ sshd_maxstartups }}" }
+    - { config: PermitEmptyPasswords, value: "{{ sshd_permitemptypasswords }}" }
+    - { config: IgnoreRhosts, value: "{{ sshd_ignorerhosts }}" }
+    - { config: PermitRootLogin, value: "{{ sshd_permitrootlogin }}" }
+    - { config: AllowAgentForwarding, value: "{{ sshd_allowagentforwarding }}" }
+    - { config: PermitUserEnvironment, value: "{{ sshd_permituserenvironment }}" }
+    - { config: Banner, value: "{{ sshd_banner }}" }
+    - { config: LoginGraceTime, value: "{{ sshd_logingracetime }}" }
+    - { config: Ciphers, value: "{{ sshd_ciphers }}" }
+    - { config: KexAlgorithms, value: "{{ sshd_kexalgorithms }}" }
+    - { config: HostKeyAlgorithms, value: "{{ sshd_hostkeyalgorithms }}" }
+    - { config: MACs, value: "{{ sshd_macs }}" }
+    - { config: CASignatureAlgorithms, value: "{{ sshd_casignaturealgorithms }}" }
+    - { config: GSSAPIKexAlgorithms, value: "{{ sshd_gssapikexalgorithms }}" }
+    - { config: HostbasedAcceptedAlgorithms, value: "{{ sshd_hostbasedacceptedalgorithms }}" }
+    - { config: PubkeyAcceptedAlgorithms, value: "{{ sshd_pubkeyacceptedalgorithms }}" }
+    - { config: AllowUsers, value: "{{ sshd_allowusers }}" }
+  vars:
+    config: "{{ item.config }}"
+    value: "{{ item.value }}"
