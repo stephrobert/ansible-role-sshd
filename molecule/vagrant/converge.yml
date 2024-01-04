@@ -10,6 +10,6 @@
   roles:
     - role: stephrobert.openscap
       vars:
-        - install_content: false
-        - install_oscap: false
+        - install_content: true
+        - install_oscap: true
         - scan: true

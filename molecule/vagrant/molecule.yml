@@ -10,8 +10,8 @@ driver:
   parallel: false
 
 platforms:
-  - name: sshd-ubuntu
-    box: stephrobert/jammy-hardening
+  - name: sshd-test
+    box: generic/ubuntu2204
     memory: 2048
     cpus: 2
     interfaces:

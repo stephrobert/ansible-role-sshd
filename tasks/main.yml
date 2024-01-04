@@ -1,4 +1,6 @@
 ---
+- name: Include variables
+  ansible.builtin.include_vars: "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}-var.yml"
 - name: Set Value
   ansible.builtin.include_tasks: modify.yml
   loop:
