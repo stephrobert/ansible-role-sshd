@@ -1,9 +1,9 @@
 # stephrobert.sshd
 
 [![Maintainer](https://img.shields.io/badge/maintained%20by-stephrobert-e00000?style=flat-square)](https://github.com/stephrobert)
-[![License](https://img.shields.io/github/license/stephrobert/ansible-role-lynis?style=flat-square)](https://github.com/stephrobert/ansible-role-lynis/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/stephrobert/ansible-role-lynis?style=flat-square)](https://github.com/stephrobert/ansible-role-lynis/releases)
-[![Status](https://img.shields.io/github/workflow/status/stephrobert/ansible-role-lynis/Ansible%20Molecule?style=flat-square&label=tests)](https://github.com/stephrobert/ansible-role-lynis/actions?query=workflow%3A%22Ansible+Molecule%22)
+[![License](https://img.shields.io/github/license/stephrobert/ansible-role-sshd?style=flat-square)](https://github.com/stephrobert/ansible-role-sshd/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/stephrobert/ansible-role-sshd?style=flat-square)](https://github.com/stephrobert/ansible-role-sshd/releases)
+[![Status](https://img.shields.io/github/workflow/status/stephrobert/ansible-role-sshd/Ansible%20Molecule?style=flat-square&label=tests)](https://github.com/stephrobert/ansible-role-sshd/actions?query=workflow%3A%22Ansible+Molecule%22)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible-galaxy-black.svg?style=flat-square&logo=ansible)](https://galaxy.ansible.com/stephrobert/sshd)[![Ansible version](https://img.shields.io/badge/ansible-%3E%3D2.10-black.svg?style=flat-square&logo=ansible)](https://github.com/ansible/ansible)
 
 ⭐ Star us on GitHub — it motivates us a lot!
@@ -38,13 +38,13 @@ ansible-galaxy install stephrobert.sshd
 If you do not want a global installation, clone it into your `roles_path`.
 
 ```bash
-git clone git@github.com:stephrobert/ansible-role-lynis.git  stephrobert.sshd
+git clone git@github.com:stephrobert/ansible-role-sshd.git  stephrobert.sshd
 ```
 
 But I often add it as a submodule in a given `playbook_dir` repository.
 
 ```bash
-git submodule add git@github.com:stephrobert/ansible-role-lynis.git roles/stephrobert.sshd
+git submodule add git@github.com:stephrobert/ansible-role-sshd.git roles/stephrobert.sshd
 ```
 
 As the role is not managed by Ansible Galaxy, you do not have to specify the
