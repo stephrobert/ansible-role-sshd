@@ -1,9 +1,9 @@
 # stephrobert.sshd
 
 [![Maintainer](https://img.shields.io/badge/maintained%20by-stephrobert-e00000?style=flat-square)](https://github.com/stephrobert)
-[![License](https://img.shields.io/github/license/stephrobert/ansible-role-lynis?style=flat-square)](https://github.com/stephrobert/ansible-role-lynis/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/stephrobert/ansible-role-lynis?style=flat-square)](https://github.com/stephrobert/ansible-role-lynis/releases)
-[![Status](https://img.shields.io/github/workflow/status/stephrobert/ansible-role-lynis/Ansible%20Molecule?style=flat-square&label=tests)](https://github.com/stephrobert/ansible-role-lynis/actions?query=workflow%3A%22Ansible+Molecule%22)
+[![License](https://img.shields.io/github/license/stephrobert/ansible-role-sshd?style=flat-square)](https://github.com/stephrobert/ansible-role-sshd/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/stephrobert/ansible-role-sshd?style=flat-square)](https://github.com/stephrobert/ansible-role-sshd/releases)
+[![Status](https://img.shields.io/github/workflow/status/stephrobert/ansible-role-sshd/Ansible%20Molecule?style=flat-square&label=tests)](https://github.com/stephrobert/ansible-role-sshd/actions?query=workflow%3A%22Ansible+Molecule%22)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible-galaxy-black.svg?style=flat-square&logo=ansible)](https://galaxy.ansible.com/stephrobert/sshd)[![Ansible version](https://img.shields.io/badge/ansible-%3E%3D2.10-black.svg?style=flat-square&logo=ansible)](https://github.com/ansible/ansible)
 
 ⭐ Star us on GitHub — it motivates us a lot!
@@ -38,13 +38,13 @@ ansible-galaxy install stephrobert.sshd
 If you do not want a global installation, clone it into your `roles_path`.
 
 ```bash
-git clone git@github.com:stephrobert/ansible-role-lynis.git  stephrobert.sshd
+git clone git@github.com:stephrobert/ansible-role-sshd.git  stephrobert.sshd
 ```
 
 But I often add it as a submodule in a given `playbook_dir` repository.
 
 ```bash
-git submodule add git@github.com:stephrobert/ansible-role-lynis.git roles/stephrobert.sshd
+git submodule add git@github.com:stephrobert/ansible-role-sshd.git roles/stephrobert.sshd
 ```
 
 As the role is not managed by Ansible Galaxy, you do not have to specify the
@@ -59,33 +59,7 @@ Basic usage is:
   roles:
     - role: stephrobert.sshd
       vars:
-        sshd_allowagentforwarding: 'no'
-        sshd_allowtcpforwarding: 'no'
-        sshd_allowusers: vagrant
-        sshd_banner: /etc/issue.net
-        sshd_casignaturealgorithms: sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-        sshd_ciphers: chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-        sshd_clientalivecountmax: 3
-        sshd_clientaliveinterval: 300
-        sshd_config_file_path: /etc/ssh/sshd_config.d/20-sshd-hardened.conf
-        sshd_gssapikexalgorithms: gss-curve25519-sha256-,gss-group16-sha512-
-        sshd_hostbasedacceptedalgorithms: sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-        sshd_hostbasedauthentication: 'no'
-        sshd_hostkeyalgorithms: sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256
-        sshd_ignorerhosts: 'yes'
-        sshd_keepalive: 'no'
-        sshd_kexalgorithms: sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
-        sshd_logingracetime: 60
-        sshd_loglevel: INFO
-        sshd_macs: hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
-        sshd_maxauthtries: 3
-        sshd_maxsessions: 2
-        sshd_maxstartups: 10:30:60
-        sshd_permitemptypasswords: 'no'
-        sshd_permitrootlogin: 'no'
-        sshd_permituserenvironment: 'no'
-        sshd_pubkeyacceptedalgorithms: sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256
-        sshd_x11forwarding: 'no'
+        sshd_config: {}
         
 ```
 
@@ -106,33 +80,7 @@ Role default variables from `defaults/main.yml`.
 
 | Variable Name | Value |
 |---------------|-------|
-| sshd_config_file_path | /etc/ssh/sshd_config.d/20-sshd-hardened.conf |
-| sshd_clientalivecountmax | 3 |
-| sshd_clientaliveinterval | 300 |
-| sshd_hostbasedauthentication | no |
-| sshd_keepalive | no |
-| sshd_x11forwarding | no |
-| sshd_loglevel | INFO |
-| sshd_allowtcpforwarding | no |
-| sshd_logingracetime | 60 |
-| sshd_maxsessions | 2 |
-| sshd_maxstartups | 10:30:60 |
-| sshd_permitemptypasswords | no |
-| sshd_maxauthtries | 3 |
-| sshd_permitrootlogin | no |
-| sshd_ignorerhosts | yes |
-| sshd_allowagentforwarding | no |
-| sshd_permituserenvironment | no |
-| sshd_banner | /etc/issue.net |
-| sshd_ciphers | chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr |
-| sshd_kexalgorithms | sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,gss-curve25519-sha256-,diffie-hellman-group16-sha512,gss-group16-sha512-,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256 |
-| sshd_macs | hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com |
-| sshd_allowusers | vagrant |
-| sshd_hostkeyalgorithms | sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256 |
-| sshd_casignaturealgorithms | sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512,rsa-sha2-256 |
-| sshd_gssapikexalgorithms | gss-curve25519-sha256-,gss-group16-sha512- |
-| sshd_hostbasedacceptedalgorithms | sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256 |
-| sshd_pubkeyacceptedalgorithms | sk-ssh-ed25519-cert-v01@openssh.com,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,ssh-ed25519,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-256 |
+| sshd_config | {}<br> |
 
 ### Context variables
 
@@ -141,6 +89,9 @@ runtime using the `include_vars` module.
 
 Variables loaded from `vars/main.yml`.
 
+| Variable Name | Value |
+|---------------|-------|
+| _sshd_config | AcceptEnv: LANG LC_*<br>AddressFamily: any<br>AllowAgentForwarding: false<br>AllowTcpForwarding: false<br>AllowUsers: ansible<br>AuthorizedKeysCommand: none<br>AuthorizedKeysCommandUser: nobody<br>AuthorizedKeysFile: .ssh/authorized_keys<br>AuthorizedPrincipalsFile: none<br>Banner: /etc/issue.net<br>ChrootDirectory: none<br>ClientAliveCountMax: 2<br>ClientAliveInterval: 300<br>Compression: false<br>ForceCommand: none<br>GSSAPIAuthentication: false<br>GSSAPICleanupCredentials: true<br>GatewayPorts: false<br>HostKey: /etc/ssh/ssh_host_rsa_key<br>HostbasedAuthentication: false<br>IgnoreRhosts: true<br>IgnoreUserKnownHosts: false<br>KbdInteractiveAuthentication: true<br>KerberosAuthentication: false<br>KerberosGetAFSToken: false<br>KerberosOrLocalPasswd: true<br>KerberosTicketCleanup: true<br>ListenAddress: 0.0.0.0<br>LogLevel: INFO<br>LoginGraceTime: 60<br>MaxAuthTries: 3<br>MaxSessions: 2<br>MaxStartups: 10:30:100<br>PasswordAuthentication: false<br>PermitEmptyPasswords: false<br>PermitRootLogin: false<br>PermitTTY: true<br>PermitTunnel: false<br>PermitUserEnvironment: false<br>PidFile: /var/run/sshd.pid<br>Port: 22<br>PrintLastLog: true<br>PrintMotd: true<br>PubkeyAuthentication: true<br>RekeyLimit: default 60s<br>StrictModes: true<br>Subsystem: sftp    /usr/lib/openssh/sftp-server<br>SyslogFacility: AUTH<br>TCPKeepAlive: false<br>UseDNS: false<br>UsePAM: false<br>VersionAddendum: none<br>X11DisplayOffset: 10<br>X11Forwarding: false<br>X11UseLocalhost: true<br> |
 
 
 

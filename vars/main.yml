@@ -1,1 +1,57 @@
 ---
+_sshd_config:
+  AcceptEnv: LANG LC_*
+  AddressFamily: any
+  AllowAgentForwarding: no
+  AllowTcpForwarding: no
+  AllowUsers: ansible
+  AuthorizedKeysCommand: none
+  AuthorizedKeysCommandUser: nobody
+  AuthorizedKeysFile: .ssh/authorized_keys
+  AuthorizedPrincipalsFile: none
+  Banner: /etc/issue.net
+  ChrootDirectory: none
+  ClientAliveCountMax: 2
+  ClientAliveInterval: 300
+  Compression: no
+  ForceCommand: none
+  GatewayPorts: no
+  GSSAPIAuthentication: no
+  GSSAPICleanupCredentials: yes
+  HostbasedAuthentication: no
+  HostKey: /etc/ssh/ssh_host_rsa_key
+  IgnoreRhosts: yes
+  IgnoreUserKnownHosts: no
+  KbdInteractiveAuthentication: yes
+  KerberosAuthentication: no
+  KerberosGetAFSToken: no
+  KerberosOrLocalPasswd: yes
+  KerberosTicketCleanup: yes
+  ListenAddress: 0.0.0.0
+  LoginGraceTime: 60
+  LogLevel: INFO
+  MaxAuthTries: 3
+  MaxSessions: 2
+  MaxStartups: "10:30:100"
+  PasswordAuthentication: no
+  PermitEmptyPasswords: no
+  PermitRootLogin: no
+  PermitTTY: yes
+  PermitTunnel: no
+  PermitUserEnvironment: no
+  PidFile: /var/run/sshd.pid
+  Port: 22
+  PrintLastLog: yes
+  PrintMotd: yes
+  PubkeyAuthentication: yes
+  RekeyLimit: "default 60s"
+  StrictModes: yes
+  Subsystem: sftp    /usr/lib/openssh/sftp-server
+  SyslogFacility: AUTH
+  TCPKeepAlive: no
+  UseDNS: no
+  UsePAM: no
+  VersionAddendum: none
+  X11DisplayOffset: 10
+  X11Forwarding: no
+  X11UseLocalhost: yes
